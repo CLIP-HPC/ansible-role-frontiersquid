@@ -1,0 +1,21 @@
+#!/bin/bash
+{{ ansible_managed | comment }}
+#
+# Edit customize.sh as you wish to customize squid.conf.
+# It will not be overwritten by upgrades.
+# See customhelps.awk for information on predefined edit functions.
+# In order to test changes to this, run this to regenerate squid.conf:
+#	service frontier-squid
+# and to reload the changes into a running squid use
+#	service frontier-squid reload
+# Avoid single quotes in the awk source or you have to protect them from bash.
+#
+{% if frontiersquid_num_services > 1 %}
+WORKERS=1
+SERVICES=${SQUID_NUM_SERVICES:-1}
+HOSTNAME=`hostname`
+{% endif %}
+awk --file `dirname $0`/customhelps.awk --source '{
+{{ frontiersquid_customize }}
+print
+}'

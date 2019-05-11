@@ -1,0 +1,22 @@
+---
+molecule:
+  tags:
+    - hephy
+  image: gitlab-registry.cern.ch/hephyvienna/docker-centos7-py36amd:latest
+  variables:
+    ROLE: hephyvienna.frontiersquid
+  before_script:
+    - ln -s $CI_PROJECT_NAME ../$ROLE
+  script:
+    - docker --version
+    - python --version
+    - ansible --version
+    - molecule --version
+    - molecule test
+    - junit2html default_junit.xml default_junit.html
+  artifacts:
+    reports:
+      junit: default_junit.xml
+    paths:
+      - default_junit.xml
+      - default_junit.html

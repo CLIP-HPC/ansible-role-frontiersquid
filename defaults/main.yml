@@ -1,0 +1,10 @@
+---
+# defaults file for hephyvienna.frontiersquid
+frontiersquid_enable_repo: false
+frontiersquid_num_services: 1
+frontiersquid_max_access_log: 5G
+frontiersquid_compress_logs: true
+frontiersquid_customize: |
+  setoption("acl NET_LOCAL src", "127.0.0.1")
+  setoption("cache_mem", "128 MB")
+  setoptionparameter("cache_dir", 3, "10000")
