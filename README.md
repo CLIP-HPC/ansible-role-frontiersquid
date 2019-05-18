@@ -55,7 +55,7 @@ MIT
 Author Information
 ------------------
 
-Written by [Dietrich Liko](http://hephy.at/dliko) in Mai 2019
+Written by [Dietrich Liko](http://hephy.at/dliko) in May 2019
 
 [Institute for High Energy Physics](http://www.hephy.at) of the
 [Austrian Academy of Sciences](http://www.oeaw.ac.at)
