@@ -1,8 +1,13 @@
 ---
+stage:
+  - test
+  - deploy
+
 molecule:
+  stage: test
   tags:
     - hephy
-  image: gitlab-registry.cern.ch/hephyvienna/docker-centos7-py36amd:latest
+  image: gitlab-registry.cern.ch/hephyvienna/docker/centos7-py36amd:latest
   variables:
     ROLE: hephyvienna.frontiersquid
   before_script:
@@ -20,3 +25,10 @@ molecule:
     paths:
       - default_junit.xml
       - default_junit.html
+
+galaxy:
+  stage: deploy
+  image: gitlab-registry.cern.ch/hephyvienna/docker/centos7-py36amd:latest
+  script:
+    - ansible-galaxy login --github-token $GITHUB_TOKEN
+    - ansible-galaxy import hephyvienna ansible-role-frontiersquid
