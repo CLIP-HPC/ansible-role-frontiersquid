@@ -15,4 +15,4 @@ galaxy_info:
   galaxy_tags:
     - wlcg
     - egi
-  dependencies: []
+dependencies: []
