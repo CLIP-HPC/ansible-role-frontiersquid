@@ -8,7 +8,7 @@
     enabled: yes
     gpgcheck: yes
     gpgkey: http://frontier.cern.ch/dist/rpms/cernFrontierGpgPublicKey
-  when: frontiersquid_enable_repo
+  when: frontiersquid_enable_repo | bool
 
 - name: Install frontiersquid
   package:
