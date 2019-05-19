@@ -1,5 +1,5 @@
 ---
-stage:
+stages:
   - test
   - deploy
 
@@ -30,5 +30,5 @@ galaxy:
   stage: deploy
   image: gitlab-registry.cern.ch/hephyvienna/docker/centos7-py36amd:latest
   script:
-    - ansible-galaxy login --github-token $GITHUB_TOKEN
+    - ansible-galaxy login --github-token $GITHUB_TOKEN_FOR_GALAXY
     - ansible-galaxy import hephyvienna ansible-role-frontiersquid
