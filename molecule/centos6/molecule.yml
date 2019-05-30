@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: centos:6
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  options:
+    # FIXME
+    W: ignore::DeprecationWarning
+    junit-xml: ../../default_junit.xml
+  lint:
+    name: flake8
