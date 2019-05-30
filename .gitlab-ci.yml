@@ -25,7 +25,7 @@ centos6:
 centos7:
   tags:
     - dood
-  image: gitlab-registry.cern.ch/hephyvienna/docker/centos7-molcule:latest
+  image: gitlab-registry.cern.ch/hephyvienna/docker/centos7-molecule:latest
   variables:
     ROLE: hephyvienna.frontiersquid
   before_script:
