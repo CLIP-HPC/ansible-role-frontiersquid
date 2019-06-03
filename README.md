@@ -3,6 +3,8 @@ Ansible Role: Frontier Squid
 
 Install and configure a [Frontier squid cache](https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid)
 
+Inspired by the [Puppet Module](https://github.com/desalvo/puppet-frontier)
+
 Requirements
 ------------
 
