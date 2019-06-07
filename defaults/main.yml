@@ -4,7 +4,16 @@ frontiersquid_enable_repo: false
 frontiersquid_num_services: 1
 frontiersquid_max_access_log: 5G
 frontiersquid_compress_logs: true
+frontiersquid_net_local:
+  - 0.0.0.0/0
+frontiersquid_cache_mem: 128 MB
+frontiersquid_cache_disk: 10000
+frontiersquid_workers: 3
+frontiersquid_range: "{{ range(1,frontiersquid_workers) | join(',') }}"
 frontiersquid_customize: |
-  setoption("acl NET_LOCAL src", "127.0.0.1")
-  setoption("cache_mem", "128 MB")
-  setoptionparameter("cache_dir", 3, "10000")
+  setoption("acl NET_LOCAL src", "{{ frontiersquid_net_local | join(' ') }}")
+  setoption("cache_mem", "{{ frontiersquid_cache_mem }}")
+  setoptionparameter("cache_dir", 3, "{{ frontiersquid_cache_mem }}")
+  setoption("workers", {{ frontiersquid_workers}} )
+  setoptionparameter("cache_dir", 2, "/var/cache/squid/squid${process_number}")
+  setoption("cpu_affinity_map", "process_numbers={{ frontiersquid_range }} cores={{ frontiersquid_range }}")

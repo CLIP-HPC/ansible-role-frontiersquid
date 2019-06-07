@@ -1,4 +1,4 @@
-# Ansible Role: Frontier Squid
+# frontiersquid
 
 Install and configure a [Frontier squid cache](https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid)
 
