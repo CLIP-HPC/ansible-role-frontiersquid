@@ -9,4 +9,5 @@ frontiersquid_net_local:
 frontiersquid_cache_mem: 128 MB
 frontiersquid_cache_disk: 10000
 frontiersquid_workers: 1
+frontiersquid_cpu_affinity: false
 frontiersquid_customize:

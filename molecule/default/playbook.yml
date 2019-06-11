@@ -7,7 +7,8 @@
       vars:
         frontiersquid_enable_repo: true
         frontiersquid_workers: 2
-        
+        frontiersquid_cpu_affinity: true
+
   tasks:
     #
     # Smoketest: Access the database and produce a cache hit

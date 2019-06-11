@@ -1,4 +1,4 @@
-# frontiersquid
+# frontiersquid [![Build Status](https://travis-ci.com/hephyvienna/ansible-role-frontiersquid.svg?branch=master)](https://travis-ci.com/hephyvienna/ansible-role-frontiersquid) [![Ansible Role](https://img.shields.io/ansible/role/40969.svg)](https://galaxy.ansible.com/hephyvienna/frontiersquid)
 
 Install and configure a [Frontier squid cache](https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid)
 
@@ -30,9 +30,13 @@ Memory cache. Can be small as the memory is used as disk cache anyway
 
 Size of the disk cache in MB.
 
+    frontiersquid_cpu_affinity: false
+
+Bind thread to CPU to boost performance.
+
     frontiersquid_customize:
 
-If the previous option do not add sufficent flexiblity, one can replace
+If the previous option do not add sufficient flexibility, one can replace
 the whole sequence.
 
 Run several instances. See the [documentation](https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Running_multiple_services) for details
