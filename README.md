@@ -17,10 +17,23 @@ Enable the CERN frontier repository as alternative to the grid repositories
 
 Check the documentation for details
 
-    frontiersquid_customize: |
-      setoption("acl NET_LOCAL src", "10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 fc00::/7 fe80::/10")
-      setoption("cache_mem", "128 MB")
-      setoptionparameter("cache_dir", 3, "10000")
+    frontiersquid_net_local:
+      - 0.0.0.0/0
+
+Restict the squid service to the local networks
+
+    frontiersquid_cache_mem: 128 MB
+
+Memory cache. Can be small as the memory is used as disk cache anyway
+
+    frontiersquid_cache_disk: 10000
+
+Size of the disk cache in MB.
+
+    frontiersquid_customize:
+
+If the previous option do not add sufficent flexiblity, one can replace
+the whole sequence.
 
 Run several instances. See the [documentation](https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Running_multiple_services) for details
 

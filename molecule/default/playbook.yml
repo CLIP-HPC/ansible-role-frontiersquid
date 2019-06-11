@@ -1,16 +1,14 @@
 ---
 - name: Converge
   hosts: all
-  vars:
-    frontiersquid_enable_repo: true
+
   roles:
     - role: hephyvienna.frontiersquid
+      vars:
+        frontiersquid_enable_repo: true
+        frontiersquid_workers: 2
+        
   tasks:
-    - name: Install initscripts for Molecule
-      package:
-        name: initscripts
-        state: present
-      when: ansible_distribution_major_version == '6'
     #
     # Smoketest: Access the database and produce a cache hit
     # A test will check the log file for it

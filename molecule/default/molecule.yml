@@ -1,13 +1,16 @@
 ---
 dependency:
   name: galaxy
+  # FIXME for MacOSX
+  options:
+    ignore-certs: true
 driver:
   name: docker
 lint:
   name: yamllint
 platforms:
   - name: instance
-    image: centos/systemd
+    image: ${MOLECULE_IMAGE:-'centos/systemd'}
     capabilities:
       - SYS_ADMIN
     tmpfs:
@@ -15,7 +18,7 @@ platforms:
       - /run
     volume_mounts:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: /usr/sbin/init
+    command: ${MOLECULE_DOCKER_COMMAND:-'/usr/sbin/init'}
 provisioner:
   name: ansible
   lint:
@@ -23,7 +26,8 @@ provisioner:
 verifier:
   name: testinfra
   options:
+    # FIXME
     W: ignore::DeprecationWarning
-    junit-xml: ../../default_junit.xml
+    junit-xml: default_junit.xml
   lint:
     name: flake8
